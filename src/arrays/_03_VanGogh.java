@@ -1,23 +1,17 @@
 package arrays;
+import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
 /*
  * Goal: Create a program to paint some Van Gogh paintings!
- * 
- * In this class:
- * 1. Declare a PImage array variable as a member variable in this class.
- *    DO NOT initialize it.
- * 
- * 2. In the initializePaintings() method, initialize the PImage array to
- *    contain 4 images.
- * 
- * 3. Use the loadImage() method to assign each of the 4 images in the /images
- *    folder to an index in the PImage array
- *    "starryNight.jpg", "strawHatPortrait.jpg",
- *    "wheatField.jpg", "painterOnRoad.jpg"
- * 
- * 4. Declare a member variable to keep track of the current image index from the
+ */
+ 
+
+
+
+ /* 4. Declare a member variable to keep track of the current image index from the
  *    array. This variable will indicate which image to display from the array.
  * 
  * 5. In the initializePaintings() method, initialize the variable to 0
@@ -50,13 +44,31 @@ public class _03_VanGogh extends PApplet {
     PImage canvas;
     PImage paintbrushCursor;
     boolean initializeCanvas = true;
-    
     /*
      * Write your code below
      */
     Brush brush;
-    
+    PImage image[];
     void initializePaintings() {
+    	/* In this class:
+    	 * 1. Declare a PImage array variable as a member variable in this class.
+    	 *    DO NOT initialize it.
+    	 *
+    	 * 2. In the initializePaintings() method, initialize the PImage array to
+    	 *    contain 4 images.
+    	 *	
+    	 * 3. Use the loadImage() method to assign each of the 4 images in the /images
+    	 *    folder to an index in the PImage array
+    	 *    "starryNight.jpg", "strawHatPortrait.jpg",
+    	 *    "wheatField.jpg", "painterOnRoad.jpg"
+    	 */
+        PImage images[];
+        images= new PImage[4];
+        images[0] = loadImage("painterOnRoad.jpg");
+        images[1] = loadImage("starryNight.jpg");
+        images[2] = loadImage("strawHatPortrait.jpg");
+        images[3] = loadImage("wheatField.jpg");
+        int index=0;
         
     }
     
@@ -82,7 +94,6 @@ public class _03_VanGogh extends PApplet {
         paintbrushCursor = loadImage("paintbrushCur.png");
         paintbrushCursor.resize(22 * 2, 28 * 2);
         cursor(paintbrushCursor);
-
         initializePaintings();
     }
 
@@ -106,7 +117,6 @@ public class _03_VanGogh extends PApplet {
             } else if (key == 32) {
                 // SPACE key pressed--go to next painting
                 selectNextPainting();
-
                 //canvas.resize(width, height);
                 initializeCanvas = true;
             }

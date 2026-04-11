@@ -97,6 +97,7 @@ public class _02_FindTheHiddenButton implements ActionListener{
 			}
 			time-=1;
 		}
+		JOptionPane.showMessageDialog(null, "BREAKING NEWS: REMAINS OF A PERSON FOUND TURNED INTO THICK PASTE IN HOUSE WITH NO CLUES EXCEPT A 5-POINTED STAR AND CANDLES");
 		}
 		//18. else tell them to try again
 	}
