@@ -7,14 +7,7 @@ import processing.core.PImage;
 /*
  * Goal: Create a program to paint some Van Gogh paintings!
  */
- 
-
-
-
- /* 4. Declare a member variable to keep track of the current image index from the
- *    array. This variable will indicate which image to display from the array.
- * 
- * 5. In the initializePaintings() method, initialize the variable to 0
+ /* 5. In the initializePaintings() method, initialize the variable to 0
  *    so the first painting to select is the first one in the array.
  * 
  * 6. Call the setNewPainting() method from the brush object and pass in
@@ -48,28 +41,31 @@ public class _03_VanGogh extends PApplet {
      * Write your code below
      */
     Brush brush;
-    PImage image[];
+    PImage images[];
+    int index=0;
     void initializePaintings() {
     	/* In this class:
-    	 * 1. Declare a PImage array variable as a member variable in this class.
-    	 *    DO NOT initialize it.
-    	 *
-    	 * 2. In the initializePaintings() method, initialize the PImage array to
-    	 *    contain 4 images.
-    	 *	
-    	 * 3. Use the loadImage() method to assign each of the 4 images in the /images
-    	 *    folder to an index in the PImage array
-    	 *    "starryNight.jpg", "strawHatPortrait.jpg",
-    	 *    "wheatField.jpg", "painterOnRoad.jpg"
-    	 */
-        PImage images[];
+    	* 1. Declare a PImage array variable as a member variable in this class.
+    	*    DO NOT initialize it.
+    	*/
+    	/* 2. In the initializePaintings() method, initialize the PImage array to
+    	*    contain 4 images.
+    	*/
+    	/* 3. Use the loadImage() method to assign each of the 4 images in the /images
+    	*    folder to an index in the PImage array
+    	*    "starryNight.jpg", "strawHatPortrait.jpg",
+    	*    "wheatField.jpg", "painterOnRoad.jpg"
+    	*/
+    	/* 4. Declare a member variable to keep track of the current image index from the
+    	*    array. This variable will indicate which image to display from the array.
+    	*/
         images= new PImage[4];
         images[0] = loadImage("painterOnRoad.jpg");
         images[1] = loadImage("starryNight.jpg");
         images[2] = loadImage("strawHatPortrait.jpg");
         images[3] = loadImage("wheatField.jpg");
-        int index=0;
-        
+        brush.setNewPainting(images[0]);
+        selectNextPainting();
     }
     
     void selectNextPainting() {
