@@ -64,12 +64,18 @@ public class _03_VanGogh extends PApplet {
         images[1] = loadImage("starryNight.jpg");
         images[2] = loadImage("strawHatPortrait.jpg");
         images[3] = loadImage("wheatField.jpg");
-        brush.setNewPainting(images[0]);
-        selectNextPainting();
+        int index = 0;
+        brush.setNewPainting(images[index]);
     }
     
     void selectNextPainting() {
-        
+        if (index==3) {
+        	index=0;
+        }
+        else {
+        	index++;
+        }
+        brush.setNewPainting(images[index]);
     }
 
     @Override
@@ -117,6 +123,7 @@ public class _03_VanGogh extends PApplet {
                 initializeCanvas = true;
             }
         }
+
     }
 
     public static void main(String[] args) {
